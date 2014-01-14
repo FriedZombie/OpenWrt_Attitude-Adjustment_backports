@@ -1,0 +1,12 @@
+Index: linux-3.3.8/arch/mips/ath79/machtypes.h
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/machtypes.h	2014-01-14 10:42:14.164617911 +0100
++++ linux-3.3.8/arch/mips/ath79/machtypes.h	2014-01-14 10:42:34.213707502 +0100
+@@ -74,6 +74,7 @@
+ 	ATH79_MACH_TL_MR11U,		/* TP-LINK TL-MR11U */
+ 	ATH79_MACH_TL_MR3020,		/* TP-LINK TL-MR3020 */
+ 	ATH79_MACH_TL_MR3040,		/* TP-LINK TL-MR3040 */
++	ATH79_MACH_TL_MR3040_V2,	/* TP-LINK TL-MR3040 v2 */
+ 	ATH79_MACH_TL_MR3220,		/* TP-LINK TL-MR3220 */
+ 	ATH79_MACH_TL_MR3420,		/* TP-LINK TL-MR3420 */
+ 	ATH79_MACH_TL_WA750RE,		/* TP-LINK TL-WA750RE */
