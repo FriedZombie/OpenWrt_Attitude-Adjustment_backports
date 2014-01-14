@@ -1,4 +1,4 @@
-This is the buildsystem for the OpenWrt Linux distribution.
+This is the buildsystem for the OpenWrt Linux distribution (Attitude Adjustment).
 
 Please use "make menuconfig" to configure your appreciated
 configuration for the toolchain and firmware.
@@ -31,4 +31,11 @@ Sunshine!
 	Your OpenWrt Project
 	http://openwrt.org
 
+----------
+
+Backported devices:
+	TP-LINK TL-WA850RE_v1
+	TP-LINK TL-WA750RE_v1
+	TP-LINK TL-WA801ND_v2
+	TP-LINK TL-WA901ND_v3
 
