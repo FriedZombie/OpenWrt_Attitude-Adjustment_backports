@@ -5,6 +5,17 @@
 # See /LICENSE for more information.
 #
 
+define Profile/TLMR10U
+	NAME:=TP-LINK TL-MR10U
+	PACKAGES:=kmod-usb-core kmod-usb2
+endef
+
+define Profile/TLMR10U/Description
+	Package set optimized for the TP-LINK TL-MR10U.
+endef
+$(eval $(call Profile,TLMR10U))
+
+
 define Profile/TLMR11U
 	NAME:=TP-LINK TL-MR11U
 	PACKAGES:=kmod-usb-core kmod-usb2 kmod-ledtrig-usbdev
@@ -70,6 +81,18 @@ define Profile/TLWR703/Description
 	Package set optimized for the TP-LINK TL-WR703N.
 endef
 $(eval $(call Profile,TLWR703))
+
+
+define Profile/TLWR710
+	NAME:=TP-LINK TL-WR710N
+	PACKAGES:=kmod-usb-core kmod-usb2
+endef
+
+
+define Profile/TLWR710/Description
+	Package set optimized for the TP-LINK TL-WR710N.
+endef
+$(eval $(call Profile,TLWR710))
 
 
 define Profile/TLWA701
