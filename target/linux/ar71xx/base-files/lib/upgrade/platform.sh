@@ -150,6 +150,7 @@ platform_check_image() {
 	tl-mr11u | \
 	tl-mr3020 | \
 	tl-mr3040 | \
+	tl-mr3040-v2 | \
 	tl-mr3220 | \
 	tl-mr3420 | \
 	tl-wa750re | \
