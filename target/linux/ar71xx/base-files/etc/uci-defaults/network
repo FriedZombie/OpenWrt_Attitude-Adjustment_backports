@@ -154,6 +154,7 @@ eap7660d |\
 mr600 |\
 rb-411 |\
 tl-mr11u |\
+tl-mr10u |\
 tl-mr3020 |\
 tl-mr3040 |\
 tl-mr3040-v2 |\
@@ -175,6 +176,7 @@ jwap003 |\
 pb42 |\
 pb44 |\
 routerstation|\
+tl-wr710n \
 wpe72)
 	ucidef_set_interfaces_lan_wan "eth1" "eth0"
 	;;
