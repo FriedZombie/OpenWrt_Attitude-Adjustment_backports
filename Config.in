@@ -87,7 +87,7 @@ menu "Target Images"
 
 	config TARGET_ROOTFS_JFFS2
 		bool "jffs2"
-		default y if USES_JFFS2
+		default n
 		depends !TARGET_ROOTFS_INITRAMFS
 		help
 		  Build a jffs2 root filesystem
