@@ -156,8 +156,12 @@ rb-411 |\
 tl-mr11u |\
 tl-mr3020 |\
 tl-mr3040 |\
+tl-wa750re |\
+tl-wa801nd-v2 |\
+tl-wa850re |\
 tl-wa901nd |\
 tl-wa901nd-v2 |\
+tl-wa901nd-v3 |\
 tl-wr703n |\
 wp543)
 	ucidef_set_interface_lan "eth0"

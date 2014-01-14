@@ -152,9 +152,13 @@ platform_check_image() {
 	tl-mr3040 | \
 	tl-mr3220 | \
 	tl-mr3420 | \
+	tl-wa750re | \
+	tl-wa801nd-v2 | \
 	tl-wa7510n | \
+	tl-wa850re | \
 	tl-wa901nd | \
 	tl-wa901nd-v2 | \
+	tl-wa901nd-v3 | \
 	tl-wdr4300 | \
 	tl-wr703n | \
 	tl-wr741nd | \
