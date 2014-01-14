@@ -147,6 +147,7 @@ platform_check_image() {
 		platform_check_image_openmesh "$magic_long" "$1" && return 0
 		return 1
 		;;
+	tl-mr10u
 	tl-mr11u | \
 	tl-mr3020 | \
 	tl-mr3040 | \
@@ -162,6 +163,7 @@ platform_check_image() {
 	tl-wa901nd-v3 | \
 	tl-wdr4300 | \
 	tl-wr703n | \
+	tl-wr710n | \
 	tl-wr741nd | \
 	tl-wr741nd-v4 | \
 	tl-wr841n-v1 | \

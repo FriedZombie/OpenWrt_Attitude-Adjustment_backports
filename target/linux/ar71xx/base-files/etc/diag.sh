@@ -147,8 +147,10 @@ get_status_led() {
 	tl-wa850re)
 		status_led="tp-link:blue:re"
 		;;
+	rl-mr10u | \
 	tl-wdr4300 | \
-	tl-wr703n)
+	tl-wr703n | \
+	tl-mr710n)
 		status_led="tp-link:blue:system"
 		;;
 	tl-wr2543n)
