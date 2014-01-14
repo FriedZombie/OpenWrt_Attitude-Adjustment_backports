@@ -127,8 +127,10 @@ get_status_led() {
 		;;
 	tl-mr3220 | \
 	tl-mr3420 | \
+	tl-wa801nd-v2 | \
 	tl-wa901nd | \
 	tl-wa901nd-v2 | \
+	tl-wa901nd-v3 | \
 	tl-wr1041n-v2 | \
 	tl-wr1043nd | \
 	tl-wr741nd | \
@@ -138,6 +140,12 @@ get_status_led() {
 	tl-wr841n-v8 | \
 	tl-wr941nd)
 		status_led="tp-link:green:system"
+		;;
+	tl-wa750re)
+		status_led="tp-link:orange:re"
+		;;
+	tl-wa850re)
+		status_led="tp-link:blue:re"
 		;;
 	tl-wdr4300 | \
 	tl-wr703n)

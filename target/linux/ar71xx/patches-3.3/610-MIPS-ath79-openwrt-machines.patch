@@ -1,6 +1,8 @@
---- b/arch/mips/ath79/machtypes.h
-+++ b/arch/mips/ath79/machtypes.h
-@@ -16,18 +16,103 @@
+Index: linux-3.3.8/arch/mips/ath79/machtypes.h
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/machtypes.h	2014-01-14 04:42:23.824593609 +0100
++++ linux-3.3.8/arch/mips/ath79/machtypes.h	2014-01-14 04:58:02.284682491 +0100
+@@ -16,18 +16,111 @@
  
  enum ath79_mach_type {
  	ATH79_MACH_GENERIC = 0,
@@ -31,6 +33,7 @@
 +	ATH79_MACH_JA76PF2,		/* jjPlus JA76PF2 */
 +	ATH79_MACH_JWAP003,		/* jjPlus JWAP003 */
 +	ATH79_MACH_HORNET_UB,		/* ALFA Networks Hornet-UB */
++	ATH79_MACH_MR600,		/* OpenMesh MR600 */
 +	ATH79_MACH_MZK_W04NU,		/* Planex MZK-W04NU */
 +	ATH79_MACH_MZK_W300NH,		/* Planex MZK-W300NH */
 +	ATH79_MACH_NBG460N,		/* Zyxel NBG460N/550N/550NH */
@@ -43,6 +46,7 @@
 +	ATH79_MACH_RB_411U,		/* MikroTik RouterBOARD 411U */
 +	ATH79_MACH_RB_433,		/* MikroTik RouterBOARD 433/433AH */
 +	ATH79_MACH_RB_433U,		/* MikroTik RouterBOARD 433UAH */
++	ATH79_MACH_RB_435G,		/* MikroTik RouterBOARD 435G */
 +	ATH79_MACH_RB_450G,		/* MikroTik RouterBOARD 450G */
 +	ATH79_MACH_RB_450,		/* MikroTik RouterBOARD 450 */
 +	ATH79_MACH_RB_493,		/* Mikrotik RouterBOARD 493/493AH */
@@ -62,8 +66,13 @@
 +	ATH79_MACH_TL_MR3040,		/* TP-LINK TL-MR3040 */
 +	ATH79_MACH_TL_MR3220,		/* TP-LINK TL-MR3220 */
 +	ATH79_MACH_TL_MR3420,		/* TP-LINK TL-MR3420 */
++	ATH79_MACH_TL_WA750RE,		/* TP-LINK TL-WA750RE */
++	ATH79_MACH_TL_WA7510N_V1,	/* TP-LINK TL-WA7510N v1*/
++	ATH79_MACH_TL_WA801ND_V2,	/* TP-LINK TL-WA801ND v2 */
++	ATH79_MACH_TL_WA850RE,		/* TP-LINK TL-WA850RE */
 +	ATH79_MACH_TL_WA901ND,		/* TP-LINK TL-WA901ND */
 +	ATH79_MACH_TL_WA901ND_V2,	/* TP-LINK TL-WA901ND v2 */
++	ATH79_MACH_TL_WA901ND_V3,	/* TP-LINK TL-WA901ND v3 */
 +	ATH79_MACH_TL_WDR4300,		/* TP-LINK TL-WDR4300 */
 +	ATH79_MACH_TL_WR1041N_V2,	/* TP-LINK TL-WR1041N v2 */
 +	ATH79_MACH_TL_WR1043ND,		/* TP-LINK TL-WR1043ND */
@@ -84,6 +93,7 @@
 +	ATH79_MACH_UBNT_RSPRO,		/* Ubiquiti RouterStation Pro */
 +	ATH79_MACH_UBNT_RS,		/* Ubiquiti RouterStation */
  	ATH79_MACH_UBNT_UNIFI, 		/* Ubiquiti Unifi */
++	ATH79_MACH_UBNT_UNIFI_OUTDOOR,	/* Ubiquiti UnifiAP Outdoor */
  	ATH79_MACH_UBNT_XM,		/* Ubiquiti Networks XM board rev 1.0 */
 +	ATH79_MACH_WHR_G301N,		/* Buffalo WHR-G301N */
 +	ATH79_MACH_WHR_HP_G300N,	/* Buffalo WHR-HP-G300N */
@@ -104,8 +114,10 @@
  };
  
  #endif /* _ATH79_MACHTYPE_H */
---- b/arch/mips/ath79/Kconfig
-+++ b/arch/mips/ath79/Kconfig
+Index: linux-3.3.8/arch/mips/ath79/Kconfig
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/Kconfig	2014-01-14 04:42:23.820599416 +0100
++++ linux-3.3.8/arch/mips/ath79/Kconfig	2014-01-14 04:52:35.424680232 +0100
 @@ -2,6 +2,61 @@
  
  menu "Atheros AR71XX/AR724X/AR913X machine selection"
@@ -207,7 +219,7 @@
  config ATH79_MACH_PB44
  	bool "Atheros PB44 reference board"
  	select SOC_AR71XX
-@@ -67,6 +147,466 @@
+@@ -67,6 +147,485 @@
  	  Say 'Y' here if you want your kernel to support the
  	  Atheros PB44 reference board.
  
@@ -438,6 +450,16 @@
 +	select ATH79_DEV_M25P80
 +	select ATH79_DEV_WMAC
 +
++config ATH79_MACH_MR600
++	bool "OpenMesh MR600 board support"
++	select SOC_AR934X
++	select ATH79_DEV_AP9X_PCI if PCI
++	select ATH79_DEV_ETH
++	select ATH79_DEV_GPIO_BUTTONS
++	select ATH79_DEV_LEDS_GPIO
++	select ATH79_DEV_M25P80
++	select ATH79_DEV_WMAC
++
 +config ATH79_MACH_MZK_W04NU
 +	bool "Planex MZK-W04NU board support"
 +	select SOC_AR913X
@@ -515,8 +537,17 @@
 +	select ATH79_DEV_M25P80
 +	select ATH79_DEV_USB
 +
++config ATH79_MACH_TL_WAX50RE
++	bool "TP-LINK TL-WA750/850RE support"
++	select SOC_AR934X
++	select ATH79_DEV_ETH
++	select ATH79_DEV_GPIO_BUTTONS
++	select ATH79_DEV_LEDS_GPIO
++	select ATH79_DEV_M25P80
++	select ATH79_DEV_WMAC
++
 +config ATH79_MACH_TL_WA901ND
-+	bool "TP-LINK TL-WA901ND support"
++	bool "TP-LINK TL-WA901ND/TL-WA7510N support"
 +	select SOC_AR724X
 +	select ATH79_DEV_AP9X_PCI if PCI
 +	select ATH79_DEV_ETH
@@ -674,7 +705,7 @@
  config ATH79_MACH_UBNT_XM
  	bool "Ubiquiti Networks XM (rev 1.0) board"
  	select SOC_AR724X
-@@ -80,6 +620,24 @@
+@@ -80,6 +639,24 @@
  	  Say 'Y' here if you want your kernel to support the
  	  Ubiquiti Networks XM (rev 1.0) board.
  
@@ -699,7 +730,7 @@
  endmenu
  
  config SOC_AR71XX
-@@ -115,10 +673,6 @@
+@@ -115,10 +692,6 @@
  	select PCI_AR724X if PCI
  	def_bool n
  
@@ -710,7 +741,7 @@
  config ATH79_DEV_AP9X_PCI
  	select ATH79_PCI_ATH9K_FIXUP
  	def_bool n
-@@ -129,7 +683,14 @@
+@@ -129,7 +702,14 @@
  config ATH79_DEV_ETH
  	def_bool n
  
@@ -726,15 +757,22 @@
  	def_bool n
  
  config ATH79_DEV_GPIO_BUTTONS
-@@ -163,2 +724,5 @@
+@@ -161,4 +741,7 @@
+ config ATH79_ROUTERBOOT
+ 	def_bool n
  
 +config PCI_AR724X
 +	def_bool n
 +
  endif
---- b/arch/mips/ath79/Makefile
-+++ b/arch/mips/ath79/Makefile
-@@ -41,6 +41,66 @@
+Index: linux-3.3.8/arch/mips/ath79/Makefile
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/Makefile	2014-01-14 04:42:23.660612607 +0100
++++ linux-3.3.8/arch/mips/ath79/Makefile	2014-01-14 04:54:44.112681747 +0100
+@@ -38,9 +38,71 @@
+ #
+ # Machines
+ #
 +obj-$(CONFIG_ATH79_MACH_ALFA_AP96)	+= mach-alfa-ap96.o
 +obj-$(CONFIG_ATH79_MACH_ALFA_NX)	+= mach-alfa-nx.o
 +obj-$(CONFIG_ATH79_MACH_ALL0258N)	+= mach-all0258n.o
@@ -756,6 +794,7 @@
 +obj-$(CONFIG_ATH79_MACH_JA76PF)		+= mach-ja76pf.o
 +obj-$(CONFIG_ATH79_MACH_JWAP003)	+= mach-jwap003.o
 +obj-$(CONFIG_ATH79_MACH_HORNET_UB)	+= mach-hornet-ub.o
++obj-$(CONFIG_ATH79_MACH_MR600)		+= mach-mr600.o
 +obj-$(CONFIG_ATH79_MACH_MZK_W04NU)	+= mach-mzk-w04nu.o
 +obj-$(CONFIG_ATH79_MACH_MZK_W300NH)	+= mach-mzk-w300nh.o
 +obj-$(CONFIG_ATH79_MACH_NBG460N)	+= mach-nbg460n.o
@@ -773,6 +812,7 @@
 +obj-$(CONFIG_ATH79_MACH_TL_MR11U)	+= mach-tl-mr11u.o
 +obj-$(CONFIG_ATH79_MACH_TL_MR3020)	+= mach-tl-mr3020.o
 +obj-$(CONFIG_ATH79_MACH_TL_MR3X20)	+= mach-tl-mr3x20.o
++obj-$(CONFIG_ATH79_MACH_TL_WAX50RE)	+= mach-tl-wax50re.o
 +obj-$(CONFIG_ATH79_MACH_TL_WA901ND)	+= mach-tl-wa901nd.o
 +obj-$(CONFIG_ATH79_MACH_TL_WA901ND_V2)	+= mach-tl-wa901nd-v2.o
 +obj-$(CONFIG_ATH79_MACH_TL_WDR4300)     += mach-tl-wdr4300.o
@@ -801,9 +841,11 @@
 +obj-$(CONFIG_ATH79_MACH_WZR_HP_G450H)	+= mach-wzr-hp-g450h.o
 +obj-$(CONFIG_ATH79_MACH_ZCN_1523H)	+= mach-zcn-1523h.o
 +
---- a/arch/mips/ath79/prom.c
-+++ b/arch/mips/ath79/prom.c
-@@ -180,6 +180,10 @@ void __init prom_init(void)
+Index: linux-3.3.8/arch/mips/ath79/prom.c
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/prom.c	2014-01-14 04:42:23.500612870 +0100
++++ linux-3.3.8/arch/mips/ath79/prom.c	2014-01-14 04:42:23.880610291 +0100
+@@ -180,6 +180,10 @@
  			ath79_prom_append_cmdline("board", env);
  		}
  	}
@@ -814,55 +856,11 @@
  }
  
  void __init prom_free_prom_memory(void)
---- b/arch/mips/ath79/machtypes.h
-+++ b/arch/mips/ath79/machtypes.h
-@@ -74,6 +74,7 @@
- 	ATH79_MACH_TL_MR3040,		/* TP-LINK TL-MR3040 */
- 	ATH79_MACH_TL_MR3220,		/* TP-LINK TL-MR3220 */
- 	ATH79_MACH_TL_MR3420,		/* TP-LINK TL-MR3420 */
-+	ATH79_MACH_TL_WA7510N_V1,	/* TP-LINK TL-WA7510N v1*/
- 	ATH79_MACH_TL_WA901ND,		/* TP-LINK TL-WA901ND */
- 	ATH79_MACH_TL_WA901ND_V2,	/* TP-LINK TL-WA901ND v2 */
- 	ATH79_MACH_TL_WDR4300,		/* TP-LINK TL-WDR4300 */
-@@ -96,6 +97,7 @@
- 	ATH79_MACH_UBNT_RSPRO,		/* Ubiquiti RouterStation Pro */
- 	ATH79_MACH_UBNT_RS,		/* Ubiquiti RouterStation */
- 	ATH79_MACH_UBNT_UNIFI, 		/* Ubiquiti Unifi */
-+	ATH79_MACH_UBNT_UNIFI_OUTDOOR,	/* Ubiquiti UnifiAP Outdoor */
- 	ATH79_MACH_UBNT_XM,		/* Ubiquiti Networks XM board rev 1.0 */
- 	ATH79_MACH_WHR_G301N,		/* Buffalo WHR-G301N */
- 	ATH79_MACH_WHR_HP_G300N,	/* Buffalo WHR-HP-G300N */
---- b/arch/mips/ath79/Kconfig
-+++ b/arch/mips/ath79/Kconfig
-@@ -374,6 +374,16 @@
- 	select ATH79_DEV_M25P80
- 	select ATH79_DEV_WMAC
- 
-+config ATH79_MACH_MR600
-+	bool "OpenMesh MR600 board support"
-+	select SOC_AR934X
-+	select ATH79_DEV_AP9X_PCI if PCI
-+	select ATH79_DEV_ETH
-+	select ATH79_DEV_GPIO_BUTTONS
-+	select ATH79_DEV_LEDS_GPIO
-+	select ATH79_DEV_M25P80
-+	select ATH79_DEV_WMAC
-+
- config ATH79_MACH_MZK_W04NU
- 	bool "Planex MZK-W04NU board support"
- 	select SOC_AR913X
-@@ -452,7 +462,7 @@
- 	select ATH79_DEV_USB
- 
- config ATH79_MACH_TL_WA901ND
--	bool "TP-LINK TL-WA901ND support"
-+	bool "TP-LINK TL-WA901ND/TL-WA7510N support"
- 	select SOC_AR724X
- 	select ATH79_DEV_AP9X_PCI if PCI
- 	select ATH79_DEV_ETH
---- a/arch/mips/ath79/mach-ubnt-xm.c
-+++ b/arch/mips/ath79/mach-ubnt-xm.c
-@@ -170,6 +170,19 @@ static struct gpio_led ubnt_unifi_leds_g
+Index: linux-3.3.8/arch/mips/ath79/mach-ubnt-xm.c
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/mach-ubnt-xm.c	2014-01-14 04:42:23.820599416 +0100
++++ linux-3.3.8/arch/mips/ath79/mach-ubnt-xm.c	2014-01-14 04:42:23.884615029 +0100
+@@ -170,6 +170,19 @@
  	}
  };
  
@@ -882,7 +880,7 @@
  static void __init ubnt_unifi_setup(void)
  {
  	u8 *mac = (u8 *) KSEG1ADDR(0x1fff0000);
-@@ -194,3 +207,33 @@ static void __init ubnt_unifi_setup(void
+@@ -194,3 +207,33 @@
  
  MIPS_MACHINE(ATH79_MACH_UBNT_UNIFI, "UBNT-UF", "Ubiquiti UniFi",
  	     ubnt_unifi_setup);
@@ -916,31 +914,3 @@
 +MIPS_MACHINE(ATH79_MACH_UBNT_UNIFI_OUTDOOR, "UBNT-U20",
 +	     "Ubiquiti UniFiAP Outdoor",
 +	     ubnt_unifi_outdoor_setup);
---- b/arch/mips/ath79/machtypes.h
-+++ b/arch/mips/ath79/machtypes.h
-@@ -43,6 +43,7 @@
- 	ATH79_MACH_JA76PF2,		/* jjPlus JA76PF2 */
- 	ATH79_MACH_JWAP003,		/* jjPlus JWAP003 */
- 	ATH79_MACH_HORNET_UB,		/* ALFA Networks Hornet-UB */
-+	ATH79_MACH_MR600,		/* OpenMesh MR600 */
- 	ATH79_MACH_MZK_W04NU,		/* Planex MZK-W04NU */
- 	ATH79_MACH_MZK_W300NH,		/* Planex MZK-W300NH */
- 	ATH79_MACH_NBG460N,		/* Zyxel NBG460N/550N/550NH */
-@@ -55,6 +56,7 @@
- 	ATH79_MACH_RB_411U,		/* MikroTik RouterBOARD 411U */
- 	ATH79_MACH_RB_433,		/* MikroTik RouterBOARD 433/433AH */
- 	ATH79_MACH_RB_433U,		/* MikroTik RouterBOARD 433UAH */
-+	ATH79_MACH_RB_435G,		/* MikroTik RouterBOARD 435G */
- 	ATH79_MACH_RB_450G,		/* MikroTik RouterBOARD 450G */
- 	ATH79_MACH_RB_450,		/* MikroTik RouterBOARD 450 */
- 	ATH79_MACH_RB_493,		/* Mikrotik RouterBOARD 493/493AH */
---- a/arch/mips/ath79/Makefile
-+++ b/arch/mips/ath79/Makefile
-@@ -59,6 +59,7 @@ obj-$(CONFIG_ATH79_MACH_EAP7660D)	+= mac
- obj-$(CONFIG_ATH79_MACH_JA76PF)		+= mach-ja76pf.o
- obj-$(CONFIG_ATH79_MACH_JWAP003)	+= mach-jwap003.o
- obj-$(CONFIG_ATH79_MACH_HORNET_UB)	+= mach-hornet-ub.o
-+obj-$(CONFIG_ATH79_MACH_MR600)		+= mach-mr600.o
- obj-$(CONFIG_ATH79_MACH_MZK_W04NU)	+= mach-mzk-w04nu.o
- obj-$(CONFIG_ATH79_MACH_MZK_W300NH)	+= mach-mzk-w300nh.o
- obj-$(CONFIG_ATH79_MACH_NBG460N)	+= mach-nbg460n.o

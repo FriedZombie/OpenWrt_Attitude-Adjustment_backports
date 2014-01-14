@@ -82,6 +82,17 @@ define Profile/TLWA701/Description
 endef
 $(eval $(call Profile,TLWA701))
 
+define Profile/TLWA750
+	NAME:=TP-LINK TL-WA750RE
+	PACKAGES:=rssileds
+endef
+
+define Profile/TLWA750/Description
+	Package set optimized for the TP-LINK TL-WA750RE.
+endef
+$(eval $(call Profile,TLWA750))
+
+
 define Profile/TLWA7510
 	NAME:=TP-LINK TL-WA7510N
 	PACKAGES:=
@@ -91,6 +102,16 @@ define Profile/TLWA7510/Description
 	Package set optimized for the TP-LINK TL-WA7510N.
 endef
 $(eval $(call Profile,TLWA7510))
+
+define Profile/TLWA850
+	NAME:=TP-LINK TL-WA850RE
+	PACKAGES:=rssileds
+endef
+
+define Profile/TLWA850/Description
+	Package set optimized for the TP-LINK TL-WA850RE.
+endef
+$(eval $(call Profile,TLWA850))
 
 
 define Profile/TLWA901
