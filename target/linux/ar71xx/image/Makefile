@@ -876,6 +876,7 @@ $(eval $(call SingleProfile,TPLINK,$(fs_64kraw),TLWR1043,tl-wr1043nd-v1,TL-WR104
 $(eval $(call SingleProfile,TPLINK-LZMA,$(fs_64kraw),TLMR10U,tl-mr10u-v1,TL-MR10U,ttyATH0,115200,0x00100101,1,4Mlzma))
 $(eval $(call SingleProfile,TPLINK-LZMA,$(fs_64kraw),TLMR11UV1,tl-mr11u-v1,TL-MR11U,ttyATH0,115200,0x00110101,1,4Mlzma))
 $(eval $(call SingleProfile,TPLINK-LZMA,$(fs_64kraw),TLMR11UV2,tl-mr11u-v2,TL-MR11U,ttyATH0,115200,0x00110102,1,4Mlzma))
+$(eval $(call SingleProfile,TPLINK-LZMA,$(fs_64kraw),TLMR13U,tl-mr13u-v1,TL-MR13U,ttyATH0,115200,0x00130101,1,4Mlzma))
 $(eval $(call SingleProfile,TPLINK-LZMA,$(fs_64kraw),TLMR3020,tl-mr3020-v1,TL-MR3020,ttyATH0,115200,0x30200001,1,4Mlzma))
 $(eval $(call SingleProfile,TPLINK-LZMA,$(fs_64kraw),TLMR3040V1,tl-mr3040-v1,TL-MR3040,ttyATH0,115200,0x30400001,1,4Mlzma))
 $(eval $(call SingleProfile,TPLINK-LZMA,$(fs_64kraw),TLMR3040V2,tl-mr3040-v2,TL-MR3040-v2,ttyATH0,115200,0x30400002,1,4Mlzma))
