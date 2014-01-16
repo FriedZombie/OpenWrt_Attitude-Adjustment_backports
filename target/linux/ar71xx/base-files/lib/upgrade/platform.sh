@@ -149,6 +149,7 @@ platform_check_image() {
 		;;
 	tl-mr10u | \
 	tl-mr11u | \
+	tl-mr13u | \
 	tl-mr3020 | \
 	tl-mr3040 | \
 	tl-mr3040-v2 | \

@@ -148,6 +148,7 @@ get_status_led() {
 		status_led="tp-link:blue:re"
 		;;
 	rl-mr10u | \
+	tl-mr13u | \
 	tl-wdr4300 | \
 	tl-wr703n | \
 	tl-mr710n)
