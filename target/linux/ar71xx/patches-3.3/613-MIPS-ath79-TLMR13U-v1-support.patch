@@ -1,0 +1,45 @@
+Index: linux-3.3.8/arch/mips/ath79/Kconfig
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/Kconfig	2014-01-16 16:49:36.656599162 +0100
++++ linux-3.3.8/arch/mips/ath79/Kconfig	2014-01-16 16:55:17.661593132 +0100
+@@ -441,6 +441,16 @@
+ 	select ATH79_DEV_USB
+ 	select ATH79_DEV_WMAC
+ 
++config ATH79_MACH_TL_MR13U
++	bool "TP-LINK TL-MR13U support"
++	select SOC_AR933X
++	select ATH79_DEV_ETH
++	select ATH79_DEV_GPIO_BUTTONS
++	select ATH79_DEV_LEDS_GPIO
++	select ATH79_DEV_M25P80
++	select ATH79_DEV_USB
++	select ATH79_DEV_WMAC
++
+ config ATH79_MACH_TL_MR3020
+ 	bool "TP-LINK TL-MR3020 support"
+ 	select SOC_AR933X
+Index: linux-3.3.8/arch/mips/ath79/Makefile
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/Makefile	2014-01-16 16:52:25.948598056 +0100
++++ linux-3.3.8/arch/mips/ath79/Makefile	2014-01-16 16:53:51.636600897 +0100
+@@ -75,6 +75,7 @@
+ obj-$(CONFIG_ATH79_MACH_TEW_673GRU)	+= mach-tew-673gru.o
+ obj-$(CONFIG_ATH79_MACH_TEW_712BR)	+= mach-tew-712br.o
+ obj-$(CONFIG_ATH79_MACH_TL_MR11U)	+= mach-tl-mr11u.o
++obj-$(CONFIG_ATH79_MACH_TL_MR13U)       += mach-tl-mr13u.o
+ obj-$(CONFIG_ATH79_MACH_TL_MR3020)	+= mach-tl-mr3020.o
+ obj-$(CONFIG_ATH79_MACH_TL_MR3X20)	+= mach-tl-mr3x20.o
+ obj-$(CONFIG_ATH79_MACH_TL_WAX50RE)	+= mach-tl-wax50re.o
+Index: linux-3.3.8/arch/mips/ath79/machtypes.h
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/machtypes.h	2014-01-16 16:52:52.788600728 +0100
++++ linux-3.3.8/arch/mips/ath79/machtypes.h	2014-01-16 16:53:16.300596685 +0100
+@@ -73,6 +73,7 @@
+ 	ATH79_MACH_TEW_712BR,		/* TRENDnet TEW-712BR */
+ 	ATH79_MACH_TL_MR10U,		/* TP-LINK TL-MR10U */
+ 	ATH79_MACH_TL_MR11U,		/* TP-LINK TL-MR11U */
++	ATH79_MACH_TL_MR13U,		/* TP-LINK TL-MR13U */
+ 	ATH79_MACH_TL_MR3020,		/* TP-LINK TL-MR3020 */
+ 	ATH79_MACH_TL_MR3040,		/* TP-LINK TL-MR3040 */
+ 	ATH79_MACH_TL_MR3040_V2,	/* TP-LINK TL-MR3040 v2 */
