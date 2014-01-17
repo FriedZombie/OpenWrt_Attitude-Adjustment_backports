@@ -1,0 +1,81 @@
+Index: compat-wireless-2013-06-27/drivers/net/wireless/ath/ath9k/hw.c
+===================================================================
+--- compat-wireless-2013-06-27.orig/drivers/net/wireless/ath/ath9k/hw.c	2014-01-17 00:48:37.100598955 +0100
++++ compat-wireless-2013-06-27/drivers/net/wireless/ath/ath9k/hw.c	2014-01-17 00:56:20.136591889 +0100
+@@ -313,6 +313,19 @@
+ 		centers->synth_center + (extoff * HT40_CHANNEL_CENTER_SHIFT);
+ }
+ 
++static inline void ath9k_hw_disable_pll_lock_detect(struct ath_hw *ah)
++{
++	/* On AR9330 and AR9340 devices, some PHY registers must be
++	 * tuned to gain better stability/performance. These registers
++	 * might be changed while doing wlan reset so the registers must
++	 * be reprogrammed after each reset.
++	 */
++	REG_CLR_BIT(ah, AR_PHY_USB_CTRL1, BIT(20));
++	REG_RMW(ah, AR_PHY_USB_CTRL2,
++		(1 << 21) | (0xf << 22),
++		(1 << 21) | (0x3 << 22));
++}
++
+ /******************/
+ /* Chip Revisions */
+ /******************/
+@@ -1397,6 +1410,9 @@
+ 	if (AR_SREV_9100(ah))
+ 		udelay(50);
+ 
++	if (AR_SREV_9330(ah) || AR_SREV_9340(ah))
++		ath9k_hw_disable_pll_lock_detect(ah);
++
+ 	return true;
+ }
+ 
+@@ -1498,6 +1514,9 @@
+ 	ath9k_hw_init_pll(ah, chan);
+ 	ath9k_hw_set_rfmode(ah, chan);
+ 
++	if (AR_SREV_9330(ah) || AR_SREV_9340(ah))
++		ath9k_hw_disable_pll_lock_detect(ah);
++
+ 	return true;
+ }
+ 
+@@ -1848,8 +1867,14 @@
+ 	if (AR_SREV_9271(ah))
+ 		ar9002_hw_load_ani_reg(ah, chan);
+ 
++	if (AR_SREV_9330(ah) || AR_SREV_9340(ah))
++		ath9k_hw_disable_pll_lock_detect(ah);
++
+ 	return 0;
+ fail:
++	if (AR_SREV_9330(ah) || AR_SREV_9340(ah))
++		ath9k_hw_disable_pll_lock_detect(ah);
++
+ 	return -EINVAL;
+ }
+ 
+@@ -2074,6 +2099,9 @@
+ 	if (AR_SREV_9565(ah) && ah->shared_chain_lnadiv)
+ 		REG_SET_BIT(ah, AR_BTCOEX_WL_LNADIV, AR_BTCOEX_WL_LNADIV_FORCE_ON);
+ 
++	if (AR_SREV_9330(ah) || AR_SREV_9340(ah))
++		ath9k_hw_disable_pll_lock_detect(ah);
++
+ 	return 0;
+ }
+ EXPORT_SYMBOL(ath9k_hw_reset);
+Index: compat-wireless-2013-06-27/drivers/net/wireless/ath/ath9k/phy.h
+===================================================================
+--- compat-wireless-2013-06-27.orig/drivers/net/wireless/ath/ath9k/phy.h	2014-01-17 00:56:36.456598558 +0100
++++ compat-wireless-2013-06-27/drivers/net/wireless/ath/ath9k/phy.h	2014-01-17 00:57:42.828597852 +0100
+@@ -48,4 +48,7 @@
+ #define AR_PHY_PLL_CONTROL 0x16180
+ #define AR_PHY_PLL_MODE 0x16184
+ 
++#define AR_PHY_USB_CTRL1        0x16c84
++#define AR_PHY_USB_CTRL2        0x16c88
++
+ #endif
