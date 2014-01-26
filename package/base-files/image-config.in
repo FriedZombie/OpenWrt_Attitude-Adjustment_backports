@@ -166,6 +166,13 @@ menuconfig VERSIONOPT
 			If unspecified, it defaults to the svn or git-svn revision
 			of the build tree.
 
+	config VERSION_BACKPORT
+		string
+		prompt "Backport version number" if VERSIONOPT
+		help
+			This is the unofficial backport version number embedded in the image.
+			If unspecified, it defaults to the git release tag.
+
 	config VERSION_REPO
 		string
 		prompt "Release repository" if VERSIONOPT
