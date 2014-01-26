@@ -15,12 +15,14 @@ ifeq ($(SDK),1)
   include $(TOPDIR)/include/version.mk
 else
   REVISION:=$(shell $(TOPDIR)/scripts/getver.sh)
+  BACKPORT:=$(shell $(TOPDIR)/scripts/getbprt.sh)
 endif
 
 HOSTCC ?= gcc
 OPENWRTVERSION:=$(RELEASE)$(if $(REVISION), ($(REVISION)))
 export RELEASE
 export REVISION
+export BACKPORT
 export OPENWRTVERSION
 export IS_TTY=$(shell tty -s && echo 1 || echo 0)
 export LD_LIBRARY_PATH:=$(subst ::,:,$(if $(LD_LIBRARY_PATH),$(LD_LIBRARY_PATH):)$(STAGING_DIR_HOST)/lib)
