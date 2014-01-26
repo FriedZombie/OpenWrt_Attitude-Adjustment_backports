@@ -10,7 +10,7 @@ try_backport() {
 }
 
 try_git() {
-	BPRT="$(git describe --tags --exact-match HEAD 2>/dev/null)"
+	BPRT="$(git describe --tags --exact-match HEAD 2> /dev/null)"
 	if [ -z "${BPRT}" ]; then
 		for i in `git log --pretty=format:'%H'`; do
 			BPRT="$(git describe --tags --exact-match $i 2> /dev/null)"
