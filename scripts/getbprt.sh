@@ -23,6 +23,7 @@ try_git() {
 	fi
 	[ -z "${BPRT}" ] && return 1
 	[ -n "$(git diff --name-only)" ] && BPRT="$BPRT+"
+	return 0
 }
 
 
