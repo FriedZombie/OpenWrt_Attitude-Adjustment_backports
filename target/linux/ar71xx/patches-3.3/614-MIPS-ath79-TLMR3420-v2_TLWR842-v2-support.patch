@@ -1,0 +1,20 @@
+Index: linux-3.3.8/arch/mips/ath79/machtypes.h
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/machtypes.h	2014-01-29 01:18:37.453594902 +0100
++++ linux-3.3.8/arch/mips/ath79/machtypes.h	2014-01-29 01:20:49.464596894 +0100
+@@ -79,6 +79,7 @@
+ 	ATH79_MACH_TL_MR3040_V2,	/* TP-LINK TL-MR3040 v2 */
+ 	ATH79_MACH_TL_MR3220,		/* TP-LINK TL-MR3220 */
+ 	ATH79_MACH_TL_MR3420,		/* TP-LINK TL-MR3420 */
++	ATH79_MACH_TL_MR3420_V2,        /* TP-LINK TL-MR3420 v2 */
+ 	ATH79_MACH_TL_WA750RE,		/* TP-LINK TL-WA750RE */
+ 	ATH79_MACH_TL_WA7510N_V1,	/* TP-LINK TL-WA7510N v1*/
+ 	ATH79_MACH_TL_WA801ND_V2,	/* TP-LINK TL-WA801ND v2 */
+@@ -97,6 +98,7 @@
+ 	ATH79_MACH_TL_WR841N_V1,	/* TP-LINK TL-WR841N v1 */
+ 	ATH79_MACH_TL_WR841N_V7,	/* TP-LINK TL-WR841N/ND v7 */
+ 	ATH79_MACH_TL_WR841N_V8,	/* TP-LINK TL-WR841N/ND v8 */
++	ATH79_MACH_TL_WR842N_V2,	/* TP-LINK TL-WR842N/ND v2 */
+ 	ATH79_MACH_TL_WR941ND,		/* TP-LINK TL-WR941ND */
+ 	ATH79_MACH_UBNT_AIRROUTER,	/* Ubiquiti AirRouter */
+ 	ATH79_MACH_UBNT_BULLET_M,	/* Ubiquiti Bullet M */
