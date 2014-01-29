@@ -127,6 +127,7 @@ get_status_led() {
 		;;
 	tl-mr3220 | \
 	tl-mr3420 | \
+	tl-mr3420-v2 | \
 	tl-wa801nd-v2 | \
 	tl-wa901nd | \
 	tl-wa901nd-v2 | \
@@ -138,6 +139,7 @@ get_status_led() {
 	tl-wr841n-v1 | \
 	tl-wr841n-v7 | \
 	tl-wr841n-v8 | \
+	tl-wr842n-v2 | \
 	tl-wr941nd)
 		status_led="tp-link:green:system"
 		;;

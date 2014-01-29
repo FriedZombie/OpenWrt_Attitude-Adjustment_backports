@@ -155,6 +155,7 @@ platform_check_image() {
 	tl-mr3040-v2 | \
 	tl-mr3220 | \
 	tl-mr3420 | \
+	tl-mr3420-v2 | \
 	tl-wa750re | \
 	tl-wa801nd-v2 | \
 	tl-wa7510n | \
@@ -170,6 +171,7 @@ platform_check_image() {
 	tl-wr841n-v1 | \
 	tl-wr841n-v7 | \
 	tl-wr841n-v8 | \
+	tl-wr842n-v2 | \
 	tl-wr941nd | \
 	tl-wr1041n-v2 | \
 	tl-wr1043nd | \

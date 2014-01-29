@@ -366,6 +366,9 @@ ar71xx_board_detect() {
 	*TL-MR3420)
 		name="tl-mr3420"
 		;;
+	*"TL-MR3420 v2")
+		name="tl-mr3420-v2"
+		;;
 	*TL-WA750RE)
 		name="tl-wa750re"
 		;;
@@ -404,6 +407,9 @@ ar71xx_board_detect() {
 		;;
 	*"TL-WR841N/ND v8")
 		name="tl-wr841n-v8"
+		;;
+	*"TL-WR842N/ND v2")
+		name="tl-wr842n-v2"
 		;;
 	*TL-WR941ND)
 		name="tl-wr941nd"
