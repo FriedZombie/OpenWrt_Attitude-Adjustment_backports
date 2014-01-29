@@ -173,6 +173,12 @@ menuconfig VERSIONOPT
 			This is the unofficial backport version number embedded in the image.
 			If unspecified, it defaults to the git release tag.
 
+	config VERSION_VERMAGIC
+		string
+		prompt "Override version magic" if VERSIONOPT
+		help
+			Use with care
+
 	config VERSION_REPO
 		string
 		prompt "Release repository" if VERSIONOPT
