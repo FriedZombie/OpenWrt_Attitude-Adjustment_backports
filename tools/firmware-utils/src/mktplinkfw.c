@@ -30,6 +30,7 @@
 #define ALIGN(x,a) ({ typeof(a) __a = (a); (((x) + __a - 1) & ~(__a - 1)); })
 
 #define HEADER_VERSION_V1	0x01000000
+#define HWID_GL_INET_V1		0x08000001
 #define HWID_TL_MR3020_V1	0x30200001
 #define HWID_TL_MR3220_V1	0x32200001
 #define HWID_TL_MR3420_V1	0x34200001
