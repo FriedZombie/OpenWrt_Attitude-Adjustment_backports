@@ -222,6 +222,9 @@ ar71xx_board_detect() {
 	*EAP7660D)
 		name="eap7660d"
 		;;
+	*"GL-CONNECT INET v1")
+		name="gl-inet"
+		;;
 	*JA76PF)
 		name="ja76pf"
 		;;
