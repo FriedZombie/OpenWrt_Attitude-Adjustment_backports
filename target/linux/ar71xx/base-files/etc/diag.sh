@@ -76,6 +76,9 @@ get_status_led() {
 	hornet-ub)
 		status_led="alfa:blue:wps"
 		;;
+        gl-inet)
+                status_led="gl-connect:green:lan"
+                ;;
 	ja76pf | \
 	ja76pf2)
 		status_led="jjplus:green:led1"
