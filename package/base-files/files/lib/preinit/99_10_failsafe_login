@@ -3,7 +3,28 @@
 # Copyright (C) 2010 Vertical Communications
 
 failsafe_netlogin () {
-    telnetd -l /bin/login.sh <> /dev/null 2>&1    
+	failsafe_setLan() {
+		[ "$1" = "eth0" || -z "$1" ] && return 0
+		failsafe_ip="$(uci get network.lan.ipaddr)"
+		failsafe_netmask="$(uci get network.lan.netmask)"
+		[ -z "$failsafe_ip" ] && failsafe_ip=192.168.1.1
+		[ -z "$failsafe_netmask" ] && failsafe_netmask=255.255.255.0
+		ifconfig eth0 down
+		ifconfig "$1" "$failsafe_ip" netmask "$failsafe_netmask" up
+	}
+
+    telnetd -l /bin/login.sh <> /dev/null 2>&1  
+
+    if [ -e /lib/ar71xx.sh ] ; then
+		. /lib/ar71xx.sh
+		board_name=$(ar71xx_board_name)
+
+		case "$board_name" in
+		"tl-wr1043nd-v2")
+			failsafe_setLan eth1
+			;;
+		esac
+    fi
 }
 
 failsafe_shell() {
