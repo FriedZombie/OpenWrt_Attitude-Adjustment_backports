@@ -34,6 +34,7 @@ Sunshine!
 ----------
 
 Backported devices:
+	GL-CONNECT GL-Inet_v1
 	TP-LINK TL-WA850RE_v1
 	TP-LINK TL-WA750RE_v1
 	TP-LINK TL-WA801ND_v1
@@ -46,3 +47,4 @@ Backported devices:
 	TP-LINK TL-MR13U_v1
 	TP-LINK TL-MR3420-v2
 	TP-LINK TL-WR842-v2
+	TP-LINK TL-1043ND_v2
