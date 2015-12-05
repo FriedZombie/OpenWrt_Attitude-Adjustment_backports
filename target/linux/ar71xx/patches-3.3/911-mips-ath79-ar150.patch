@@ -1,0 +1,39 @@
+--- a/arch/mips/ath79/Kconfig
++++ b/arch/mips/ath79/Kconfig
+@@ -70,6 +70,16 @@ config ATH79_MACH_AP121
+ 	  Say 'Y' here if you want your kernel to support the
+ 	  Atheros AP121 reference board.
+ 
++config ATH79_MACH_GL_AR150
++	bool "GL_AR150 support"
++	select SOC_AR933X
++	select ATH79_DEV_ETH
++	select ATH79_DEV_GPIO_BUTTONS
++	select ATH79_DEV_LEDS_GPIO
++	select ATH79_DEV_M25P80
++	select ATH79_DEV_USB
++	select ATH79_DEV_WMAC
++
+ config ATH79_MACH_AP136
+ 	bool "Atheros AP136 reference board"
+ 	select SOC_QCA955X
+--- a/arch/mips/ath79/Makefile
++++ b/arch/mips/ath79/Makefile
+@@ -56,6 +56,7 @@ obj-$(CONFIG_ATH79_MACH_DIR_615_C1)	+= m
+ obj-$(CONFIG_ATH79_MACH_DIR_825_B1)	+= mach-dir-825-b1.o
+ obj-$(CONFIG_ATH79_MACH_EW_DORIN)	+= mach-ew-dorin.o
+ obj-$(CONFIG_ATH79_MACH_EAP7660D)	+= mach-eap7660d.o
++obj-$(CONFIG_ATH79_MACH_GL_AR150)	+= mach-gl_ar150.o
+ obj-$(CONFIG_ATH79_MACH_JA76PF)		+= mach-ja76pf.o
+ obj-$(CONFIG_ATH79_MACH_JWAP003)	+= mach-jwap003.o
+ obj-$(CONFIG_ATH79_MACH_HORNET_UB)	+= mach-hornet-ub.o
+--- a/arch/mips/ath79/machtypes.h
++++ b/arch/mips/ath79/machtypes.h
+@@ -39,6 +39,7 @@ enum ath79_mach_type {
+ 	ATH79_MACH_EW_DORIN,		/* embedded wireless Dorin Platform */
+ 	ATH79_MACH_EW_DORIN_ROUTER,	/* embedded wireless Dorin Router Platform */
+ 	ATH79_MACH_EAP7660D,		/* Senao EAP7660D */
++	ATH79_MACH_GL_AR150,        /* GL_ar150 */
+ 	ATH79_MACH_JA76PF,		/* jjPlus JA76PF */
+ 	ATH79_MACH_JA76PF2,		/* jjPlus JA76PF2 */
+ 	ATH79_MACH_JWAP003,		/* jjPlus JWAP003 */
