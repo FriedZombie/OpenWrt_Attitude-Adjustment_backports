@@ -69,6 +69,9 @@ gl-inet)
 	ucidef_set_led_wlan "wlan" "WLAN" "gl-connect:red:wlan" "phy0tpt"
 	;;
 
+gl-ar150)
+       ucidef_set_led_wlan "wlan" "WLAN" "gl_ar150:wlan" "phy0tpt"
+       ;;
 hornet-ub)
 	ucidef_set_led_netdev "lan" "LAN" "alfa:blue:lan" "eth0"
 	ucidef_set_led_netdev "wan" "WAN" "alfa:blue:wan" "eth1"
