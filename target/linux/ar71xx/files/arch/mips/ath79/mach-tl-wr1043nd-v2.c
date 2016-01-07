@@ -222,3 +222,6 @@ static void __init tl_wr1043nd_v2_setup(void)
 
 MIPS_MACHINE(ATH79_MACH_TL_WR1043ND_V2, "TL-WR1043ND-v2",
 	     "TP-LINK TL-WR1043ND v2", tl_wr1043nd_v2_setup);
+
+MIPS_MACHINE(ATH79_MACH_TL_WR1043ND_V3, "TL-WR1043ND-v3",
+	     "TP-LINK TL-WR1043ND v3", tl_wr1043nd_v2_setup);

@@ -1,0 +1,12 @@
+Index: linux-3.3.8/arch/mips/ath79/machtypes.h
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/machtypes.h
++++ linux-3.3.8/arch/mips/ath79/machtypes.h
+@@ -92,6 +92,7 @@ enum ath79_mach_type {
+ 	ATH79_MACH_TL_WR1041N_V2,	/* TP-LINK TL-WR1041N v2 */
+ 	ATH79_MACH_TL_WR1043ND,		/* TP-LINK TL-WR1043ND */
+ 	ATH79_MACH_TL_WR1043ND_V2,	/* TP-LINK TL-WR1043ND v2 */
++	ATH79_MACH_TL_WR1043ND_V3,      /* TP-LINK TL-WR1043ND v3 */
+ 	ATH79_MACH_TL_WR2543N,		/* TP-LINK TL-WR2543N/ND */
+ 	ATH79_MACH_TL_WR703N,		/* TP-LINK TL-WR703N */
+ 	ATH79_MACH_TL_WR710N,		/* TP-LINK TL-WR710N */
