@@ -130,6 +130,7 @@ tl-wr941nd)
 
 tl-mr3420-v2|\
 tl-wr1043nd-v2|\
+tl-wr1043nd-v3|\
 tl-wr841n-v8|\
 tl-wr842n-v2)
 	ucidef_set_interfaces_lan_wan "eth1" "eth0"

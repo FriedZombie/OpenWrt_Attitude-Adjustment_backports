@@ -214,7 +214,8 @@ tl-wr1041n-v2)
 	;;
 
 tl-wr1043nd | \
-tl-wr1043nd-v2)
+tl-wr1043nd-v2 | \
+tl-wr1043nd-v3)
 	ucidef_set_led_usbdev "usb" "USB" "tp-link:green:usb" "1-1"
 	ucidef_set_led_wlan "wlan" "WLAN" "tp-link:green:wlan" "phy0tpt"
 	;;
