@@ -1,0 +1,45 @@
+Index: linux-3.3.8/arch/mips/ath79/Kconfig
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/Kconfig
++++ linux-3.3.8/arch/mips/ath79/Kconfig
+@@ -441,6 +441,16 @@ config ATH79_MACH_GL_INET
+ 	select ATH79_DEV_USB
+ 	select ATH79_DEV_WMAC
+ 
++config ATH79_MACH_GL_AR150
++	bool "GL_AR150 support"
++	select SOC_AR933X
++	select ATH79_DEV_ETH
++	select ATH79_DEV_GPIO_BUTTONS
++	select ATH79_DEV_LEDS_GPIO
++	select ATH79_DEV_M25P80
++	select ATH79_DEV_USB
++	select ATH79_DEV_WMAC
++
+ config ATH79_MACH_TL_MR11U
+ 	bool "TP-LINK TL-MR11U/TL-MR3040 support"
+ 	select SOC_AR933X
+Index: linux-3.3.8/arch/mips/ath79/Makefile
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/Makefile
++++ linux-3.3.8/arch/mips/ath79/Makefile
+@@ -75,6 +75,7 @@ obj-$(CONFIG_ATH79_MACH_TEW_632BRP)	+= m
+ obj-$(CONFIG_ATH79_MACH_TEW_673GRU)	+= mach-tew-673gru.o
+ obj-$(CONFIG_ATH79_MACH_TEW_712BR)	+= mach-tew-712br.o
+ obj-$(CONFIG_ATH79_MACH_GL_INET)	+= mach-gl-inet.o
++obj-$(CONFIG_ATH79_MACH_GL_AR150)	+= mach-gl_ar150.o
+ obj-$(CONFIG_ATH79_MACH_TL_MR11U)	+= mach-tl-mr11u.o
+ obj-$(CONFIG_ATH79_MACH_TL_MR13U)       += mach-tl-mr13u.o
+ obj-$(CONFIG_ATH79_MACH_TL_MR3020)	+= mach-tl-mr3020.o
+Index: linux-3.3.8/arch/mips/ath79/machtypes.h
+===================================================================
+--- linux-3.3.8.orig/arch/mips/ath79/machtypes.h
++++ linux-3.3.8/arch/mips/ath79/machtypes.h
+@@ -72,6 +72,7 @@ enum ath79_mach_type {
+ 	ATH79_MACH_TEW_673GRU,		/* TRENDnet TEW-673GRU */
+ 	ATH79_MACH_TEW_712BR,		/* TRENDnet TEW-712BR */
+ 	ATH79_MACH_GL_INET,		/* GL-CONNECT GL-INET */
++	ATH79_MACH_GL_AR150,		/* GL-AR150 */
+ 	ATH79_MACH_TL_MR10U,		/* TP-LINK TL-MR10U */
+ 	ATH79_MACH_TL_MR11U,		/* TP-LINK TL-MR11U */
+ 	ATH79_MACH_TL_MR13U,		/* TP-LINK TL-MR13U */

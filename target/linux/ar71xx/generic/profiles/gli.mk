@@ -15,3 +15,14 @@ define Profile/GLINET/Description
 endef
 
 $(eval $(call Profile,GLINET))
+
+define Profile/GL_AR150
+	NAME:=GL-AR150
+	PACKAGES:=kmod-usb-core kmod-usb2
+endef
+
+define Profile/GL_AR150/Description
+	Configuration of GL AR150.
+endef
+
+$(eval $(call Profile,GL_AR150))

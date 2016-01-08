@@ -225,6 +225,9 @@ ar71xx_board_detect() {
 	*"GL-CONNECT INET v1")
 		name="gl-inet"
 		;;
+	*GL-AR150)
+		name="gl-ar150"
+		;;
 	*JA76PF)
 		name="ja76pf"
 		;;
