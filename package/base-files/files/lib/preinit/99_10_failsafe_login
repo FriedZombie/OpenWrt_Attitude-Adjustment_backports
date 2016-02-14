@@ -20,7 +20,7 @@ failsafe_netlogin () {
 		board_name=$(ar71xx_board_name)
 
 		case "$board_name" in
-		"tl-wr1043nd-v2"\|
+		"tl-wr1043nd-v2"|\
 		"tl-wr1043nd-v3")
 			failsafe_setLan eth1
 			;;
