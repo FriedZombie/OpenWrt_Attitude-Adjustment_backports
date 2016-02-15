@@ -804,7 +804,7 @@ $(eval $(call SingleProfile,AthLzma,$(fs_64k),EWDORINAP,ew-dorin,EW-DORIN,ttyATH
 $(eval $(call SingleProfile,AthLzma,$(fs_64k),EWDORINRT,ew-dorin-router,EW-DORIN-ROUTER,ttyATH0,115200,$$(ew-dorin_mtdlayout_4M),1048576,2752512,KRuImage))
 $(eval $(call SingleProfile,AthLzma,$(fs_64k),PB92,pb92,PB92,ttyS0,115200,$$(pb92_mtdlayout),917504,2818048,KRuImage))
 $(eval $(call SingleProfile,AthLzma,$(fs_64k),GL_AR150,gl-ar150,GL-AR150,ttyATH0,115200,$$(gl_ar150_16M),1310720,15007744,KRuImage))
-$(eval $(call SingleProfile,AthLzma,$(fs_64k),ZSUNSDREADER,zsun-sdreader,ZSUN-SDREADER,ttyATH0,115200,$$(zsun_sdreader_mtdlayout),RKuImage))
+$(eval $(call SingleProfile,AthLzma,$(fs_64k),ZSUNSDREADER,zsun-sdreader,ZSUN-SDREADER,ttyATH0,115200,$$(zsun_sdreader_mtdlayout),917504,1703936,RKuImage))
 
 $(eval $(call SingleProfile,Cameo7240,$(fs_64k),DIR600A1,dir-600-a1,DIR-600-A1,ttyS0,115200,"AP91-AR7240-RT-090223-00"))
 $(eval $(call SingleProfile,Cameo7240,$(fs_64k),DIR601A1,dir-601-a1,DIR-600-A1,ttyS0,115200,"AP91-AR7240-RT-090223-02"))
