@@ -6,12 +6,12 @@
 #
 
 define Profile/ZSUNSDREADER
-        NAME:=ZSUN WiFi SD Card reader
-        PACKAGES:=kmod-usb-core kmod-usb2 kmod-usb-storage
+	NAME:=ZSUN WiFi SD Card reader
+	PACKAGES:=kmod-usb-core kmod-usb2 kmod-usb-storage
 endef
 
 define Profile/ZSUNSDREADER/Description
-        Package set optimized for the ZSUN WiFi SD Card Reader.
+	Package set optimized for the ZSUN WiFi SD Card Reader.
 endef
 
 $(eval $(call Profile,ZSUNSDREADER))
