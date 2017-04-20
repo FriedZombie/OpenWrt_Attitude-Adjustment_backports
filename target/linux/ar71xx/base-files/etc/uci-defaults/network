@@ -170,7 +170,8 @@ tl-wa901nd |\
 tl-wa901nd-v2 |\
 tl-wa901nd-v3 |\
 tl-wr703n |\
-wp543)
+wp543 |\
+zsun-sdreader)
 	ucidef_set_interface_lan "eth0"
 	;;
 
