@@ -1,7 +1,13 @@
 #!/bin/sh
 
-uci set wireless.@wifi-device[0].disabled=0
-uci commit wireless
-wifi
+. /lib/ar71xx.sh
+
+board=$(ar71xx_board_name)
+
+if [ "${board}" == "zsun-sdreader" ]; then
+  uci set wireless.@wifi-device[0].disabled=0
+  uci commit wireless
+  wifi
+fi
 
 exit 0
