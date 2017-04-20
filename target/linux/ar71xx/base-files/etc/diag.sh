@@ -198,6 +198,9 @@ get_status_led() {
 	zcn-1523h-2 | zcn-1523h-5)
 		status_led="zcn-1523h:amber:init"
 		;;
+	zsun-sdreader)
+		status_led="zsunreader:green:system"
+		;;
 	esac;
 }
 

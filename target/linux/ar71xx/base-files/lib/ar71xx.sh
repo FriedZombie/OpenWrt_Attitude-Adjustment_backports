@@ -501,6 +501,9 @@ ar71xx_board_detect() {
 	*EmbWir-Dorin-Router)
 		name="ew-dorin-router"
 		;;
+	*"ZSUN WiFi SD Card Reader")
+		name="zsun-sdreader"
+		;;
 	esac
 
 	case "$machine" in
